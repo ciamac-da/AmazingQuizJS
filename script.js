@@ -1,54 +1,23 @@
-/**var questions = [
-  {question:'Was ist 3 + 5',answer:"8"},
-  {question:'Wo liegt Berlin',answer:'Deutschland'},
-  {question:'Wo liegt Tokyo',answer:'Japan'}
+const frageDiv = document.getElementById('frage')
+const punkteDiv = document.getElementById('punkte')
+const neueAufgabeButton = document.getElementById('neu')
+const antwortButton = document.getElementById('go')
+const antwortFeld = document.getElementById('antwort')
+
+const questions = [
+  {question:'What is the result of 3 + 5',answer:"8"},
+  {question:'What is the capital of Germany',answer:'berlin'},
+  {question:'What is the capital of Japan',answer:'tokio'},
+  {question : "What is the standard distance(in meter) between the target and archer in Olympics?", answer : "70"},
+  {question : "Which is the highest number on a standard roulette wheel?", answer : "36"}
 ]
 
-var frageDiv = document.getElementById('frage')
-var punkteDiv = document.getElementById('punkte')
-var neueAufgabeButton = document.getElementById('neu')
-var antwortButton = document.getElementById('go')
-var antwortFeld = document.getElementById('antwort')
+// To focus on textarea automatically
+antwortFeld.focus()
 
 let frage;
 
-function sleep () { return new Promise( (resolve,reject) => {
-   setTimeout( () =>{ resolve("test2") },5555 ) })}
 
-   function neueAufgabe(e) { new Promise((resolve,reject) =>{
-  frage = questions[Math.floor(Math.random()*questions.length)];
-  frageDiv.innerText = frage.question
-  setTimeout ( () =>  {
-    if ( antwortFeld.value.trim() === frage.answer){
-      resolve(punkteDiv.innertext = Number ( punkteDiv.innertext ) + 100)
-    }else
-    {
-      reject( punkteDiv.innerText = Number ( punkteDiv.innerText ) - 100)
-    }
-    antwortFeld.value=""
-  }, 9999)
-}
-).then(neueAufgabe)
-}
-
-neueAufgabeButton.onclick = neueAufgabe
-*/
-var questions = [
-  {question:'Was ist 3 + 5',answer:"8"},
-  {question:'Wo liegt Berlin',answer:'Deutschland'},
-  {question:'Wo liegt Tokyo',answer:'Japan'}
-]
-
-var frageDiv = document.getElementById('frage')
-var punkteDiv = document.getElementById('punkte')
-var neueAufgabeButton = document.getElementById('neu')
-var antwortButton = document.getElementById('go')
-var antwortFeld = document.getElementById('antwort')
-
-let frage;
-
-function sleep(){ return new Promise( (resolve,reject) => {
-  setTimeout( ()=>{ resolve('test2') }, 1000 ) })}
 
 function neueAufgabe (e) {
   new Promise(
@@ -66,5 +35,6 @@ function neueAufgabe (e) {
     }
   ).then(neueAufgabe)
 }
+
 
 neueAufgabeButton.onclick = neueAufgabe
